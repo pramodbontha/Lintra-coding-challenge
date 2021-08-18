@@ -1,12 +1,25 @@
-import React from 'react'
-import { Header } from '../components/Header'
+import React, { useState, useEffect } from "react";
+import { Header } from "../components/Header";
+import { FETCH_MOVIES } from "../services/movies.service";
 
 const AutoCompletionPage = () => {
-    return (
-        <>
-         <Header/>   
-        </>
-    )
-}
+  const [searchInput, setSearchInput] = useState("");
+  const [movieList, setMovieList] = useState([]);
+  useEffect(() => {
+    const fetchMovieList = async () => {
+      const response = await FETCH_MOVIES(searchInput);
+      const movieList = response.results;
+      setMovieList(movieList);
+    };
+    fetchMovieList();
+    return () => {};
+  }, [searchInput]);
 
-export default AutoCompletionPage
+  return (
+    <>
+      <Header />
+    </>
+  );
+};
+
+export default AutoCompletionPage;
