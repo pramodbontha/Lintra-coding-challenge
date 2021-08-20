@@ -5,7 +5,11 @@ import "./AutoComplete.css";
 import AutoCompleteListItem from "./AutoCompleteListItem/AutoCompleteListItem";
 import List from "@material-ui/core/List";
 
-export const AutoComplete = ({ list, activeSuggestionIndex }) => {
+export const AutoComplete = ({
+  list,
+  highLightText,
+  activeSuggestionIndex,
+}) => {
   return (
     <div>
       <Container maxWidth="sm" className="ac-container">
@@ -16,6 +20,7 @@ export const AutoComplete = ({ list, activeSuggestionIndex }) => {
                 list.map((movie, index) => (
                   <AutoCompleteListItem
                     movie={movie}
+                    highLightText={highLightText}
                     highLight={index === activeSuggestionIndex}
                   />
                 ))}
