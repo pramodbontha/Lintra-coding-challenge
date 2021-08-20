@@ -8,10 +8,13 @@ import Typography from "@material-ui/core/Typography";
 import "./AutoCompleteListItem.css";
 import { IMAGE_URL } from "../../../constants";
 
-const AutoCompleteListItem = ({ movie }) => {
+const AutoCompleteListItem = ({ movie, highLight }) => {
   return (
     <div>
-      <ListItem alignItems="flex-start">
+      <ListItem
+        alignItems="flex-start"
+        style={{ backgroundColor: highLight ? "lightgray" : "white" }}
+      >
         <ListItemAvatar>
           <Avatar alt={movie.title} src={`${IMAGE_URL}${movie.poster_path}`} />
         </ListItemAvatar>
