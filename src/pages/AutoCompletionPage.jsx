@@ -7,10 +7,12 @@ const AutoCompletionPage = () => {
   const [movieList, setMovieList] = useState([]);
   const [showAutoCompleteList, setShowAutoCompleteList] = useState(false);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
+  const [highLightText, setHighLightText] = useState("");
 
   const onSearchInputChange = (searchInput) => {
     setSearchInput(searchInput);
     searchMovies(searchInput);
+    setHighLightText(searchInput);
   };
 
   const searchMovies = async (searchInput) => {
@@ -52,6 +54,7 @@ const AutoCompletionPage = () => {
       {showAutoCompleteList && (
         <AutoComplete
           list={movieList}
+          highLightText={highLightText}
           activeSuggestionIndex={activeSuggestionIndex}
         />
       )}

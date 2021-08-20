@@ -7,8 +7,9 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import "./AutoCompleteListItem.css";
 import { IMAGE_URL } from "../../../constants";
+import Highlighter from "react-highlight-words";
 
-const AutoCompleteListItem = ({ movie, highLight }) => {
+const AutoCompleteListItem = ({ movie, highLightText, highLight }) => {
   return (
     <div>
       <ListItem
@@ -19,7 +20,16 @@ const AutoCompleteListItem = ({ movie, highLight }) => {
           <Avatar alt={movie.title} src={`${IMAGE_URL}${movie.poster_path}`} />
         </ListItemAvatar>
         <ListItemText
-          primary={movie.original_title}
+          primary={
+            !highLight ? (
+              <Highlighter
+                searchWords={highLightText.split(" ")}
+                textToHighlight={movie.original_title}
+              />
+            ) : (
+              movie.original_title
+            )
+          }
           secondary={
             <React.Fragment>
               <Typography
