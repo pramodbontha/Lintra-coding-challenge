@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { AutoComplete, Header, SearchInput } from "../components";
 import { FETCH_MOVIES } from "../services/movies.service";
 
+// Stateful Component
+// Manages all the states and implementations for the presentational components.
 const AutoCompletionPage = () => {
   const [searchInput, setSearchInput] = useState("");
   const [movieList, setMovieList] = useState([]);
@@ -9,12 +11,20 @@ const AutoCompletionPage = () => {
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [highLightText, setHighLightText] = useState("");
 
+  /**
+   * Fetches movies based on the search input and highlights the text in the moives list.
+   * @param {string} searchInput
+   */
   const onSearchInputChange = (searchInput) => {
     setSearchInput(searchInput);
     searchMovies(searchInput);
     setHighLightText(searchInput);
   };
 
+  /**
+   * Fetches movies list based on the search input
+   * @param {string} searchInput
+   */
   const searchMovies = async (searchInput) => {
     let movieList = [];
     if (searchInput.trim().length) {
@@ -26,6 +36,9 @@ const AutoCompletionPage = () => {
     setShowAutoCompleteList(showAutoCompleteList);
   };
 
+  /**
+   * Adds the key controls to the list for Arrow up and down to navigate through the list.
+   */
   onkeydown = (e) => {
     if (e.key === "ArrowUp") {
       if (activeSuggestionIndex === 0) {

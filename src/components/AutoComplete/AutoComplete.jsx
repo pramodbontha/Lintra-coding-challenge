@@ -5,6 +5,10 @@ import "./AutoComplete.css";
 import AutoCompleteListItem from "./AutoCompleteListItem/AutoCompleteListItem";
 import List from "@material-ui/core/List";
 
+/**
+ * Displays the Autocomplete list with highlighting text and
+ * active suggestion highlighting background.
+ */
 export const AutoComplete = ({
   list,
   highLightText,

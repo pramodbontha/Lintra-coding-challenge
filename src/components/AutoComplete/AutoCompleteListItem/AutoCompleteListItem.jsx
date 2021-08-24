@@ -9,6 +9,10 @@ import "./AutoCompleteListItem.css";
 import { IMAGE_URL } from "../../../constants";
 import Highlighter from "react-highlight-words";
 
+/**
+ * Styled AutocompleteListItem with highlighted text and background
+ * for active suggestions.
+ */
 const AutoCompleteListItem = ({ movie, highLightText, highLight }) => {
   return (
     <div>

@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import "./SearchInput.css";
 
+// Displays input field to take the search input and trigger input changes to fetch movies list.
 export const SearchInput = ({ searchInput, onSearchInputChange }) => {
   return (
     <>
